@@ -9,7 +9,7 @@ public class LevelMaster : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        for(int i =0; i<50; i++)
+        for(int i =0; i<100; i++)
         {
             float x = Random.Range(4f, -80f);
             float z = Random.Range(-77f, 16f);

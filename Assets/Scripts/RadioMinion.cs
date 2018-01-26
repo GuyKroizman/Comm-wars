@@ -39,6 +39,12 @@ public class RadioMinion : MonoBehaviour {
         {
             return directionQuaternion;
         }
+
+        internal void Turn()
+        {
+            directionDegrees *= -1;
+            directionQuaternion = Quaternion.Euler(0.0f, directionDegrees, 0.0f);
+        }
     }
 
 
@@ -100,11 +106,6 @@ public class RadioMinion : MonoBehaviour {
             }            
         }
 
-        private void Rotate()
-        {
-            
-        }
-
         /// <summary>
         /// Rotate the current player in the direction provided, using the speed provided
         /// </summary>
@@ -119,6 +120,11 @@ public class RadioMinion : MonoBehaviour {
         {
             m_transform.Translate(Vector3.forward * Time.deltaTime * m_speed);
         }
+
+        internal void ChangeDirection()
+        {
+            m_direction.Turn();
+        }
     }
 
     RandomStroll m_randomStroll;
@@ -131,5 +137,10 @@ public class RadioMinion : MonoBehaviour {
     void Update()
     {
         m_randomStroll.Update();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        //m_randomStroll.ChangeDirection();
     }
 }
