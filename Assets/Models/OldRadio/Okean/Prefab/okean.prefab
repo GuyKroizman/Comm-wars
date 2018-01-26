@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4447958452867768}
+  - component: {fileID: 114130277116692634}
   m_Layer: 0
   m_Name: okean
   m_TagString: Untagged
@@ -246,3 +247,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955183194411054}
   m_Mesh: {fileID: 4300000, guid: 8edaa647e457ca744921cf4ffa52376d, type: 3}
+--- !u!114 &114130277116692634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434604574236704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf273ef7a2e4924faf6d64a0d6c2c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
