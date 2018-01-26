@@ -19,11 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4447958452867768}
-  - component: {fileID: 114130277116692634}
+  - component: {fileID: 114712204518648506}
   - component: {fileID: 54832056720830206}
   - component: {fileID: 65272326796592902}
   m_Layer: 0
-  m_Name: okean
+  m_Name: mainRadio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 1434604574236704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4753915606069652}
   - {fileID: 4382812313042964}
@@ -276,7 +276,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.67, y: 0.42, z: 0.18}
   m_Center: {x: 0, y: 0.21, z: 0.03}
---- !u!114 &114130277116692634
+--- !u!114 &114712204518648506
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1434604574236704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf273ef7a2e4924faf6d64a0d6c2c96, type: 3}
+  m_Script: {fileID: 11500000, guid: 876b1b46fcee14446960eed6766ed014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
