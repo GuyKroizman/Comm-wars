@@ -16,9 +16,17 @@ public class Player : MonoBehaviour {
         if (Input.GetKey("down"))
             transform.Translate(Vector3.back * speed );
         if (Input.GetKey("left"))
-            transform.Translate(Vector3.left * speed );
+        {
+            Vector3 temp = transform.rotation.eulerAngles;
+            temp.y = temp.y - 2.0f;
+            transform.rotation =  Quaternion.Euler(temp);
+        }
         if (Input.GetKey("right"))
-            transform.Translate(Vector3.right * speed );
+        {
+            Vector3 temp = transform.rotation.eulerAngles;
+            temp.y = temp.y + 2.0f;
+            transform.rotation = Quaternion.Euler(temp);
+        }
 
     }
 }
