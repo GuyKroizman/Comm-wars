@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class RadioMinion : MonoBehaviour {
 
-    public float speed;
-
-
     /// <summary>
     /// Hold the state of the rotation.
     /// Does the math using regular degrees and provide the quaternion.

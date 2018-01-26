@@ -8,22 +8,47 @@ public class LevelMaster : MonoBehaviour {
 
     public GameObject radioPrefab;
     public GameObject mainRadio;
+    public GameObject mainTv;
     
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         CreateMainRadio();
-        for (int i =1; i<=20; i++)
+
+        CreateRadioMinions();
+
+        CreateTvMinions();
+
+    }
+
+    private void CreateTvMinions()
+    {
+        for (int i = 1; i <= 20; i++)
         {
             float x = UnityEngine.Random.Range(4f, -80f);
-            float z = UnityEngine.Random.Range(-77f, 16f);
+            float z = UnityEngine.Random.Range(-77f, -46f);
+            Vector3 v = new Vector3(x, 2.6f, z);
+
+            var newMinion = Instantiate(mainTv, v, Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f));            
+
+            float size = 1.75f;
+            newMinion.transform.localScale = new Vector3(size, size, size);
+        }
+    }
+
+    private void CreateRadioMinions()
+    {
+        for (int i = 1; i <= 20; i++)
+        {
+            float x = UnityEngine.Random.Range(4f, -80f);
+            float z = UnityEngine.Random.Range(-1f, 6f);
             Vector3 v = new Vector3(x, 1, z);
             var newMinion = Instantiate(radioPrefab, v, Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f));
-            //float size = Random.Range(5f, 25f);
+            
             float size = 10f;
             newMinion.transform.localScale = new Vector3(size, size, size);
         }
-        
-	}
+    }
 
     private void CreateMainRadio()
     {
