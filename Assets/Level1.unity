@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   down: 115
   right: 100
   left: 97
-  transmit: 102
+  transmit: 32
   transmissionBubble: {fileID: 1892047492839816, guid: 4b74897ea9fa4c343824037698759b55,
     type: 2}
 --- !u!54 &627131313
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 1034545538}
   m_Layer: 0
   m_Name: Wall4
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,8 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radioPrefab: {fileID: 1434604574236704, guid: 9e3637a75d7a540458d67c2c7f9641c9,
     type: 2}
-  mainRadio: {fileID: 1434604574236704, guid: 6faf506a182b8ba4ea24d7d077e76b5b, type: 2}
-  mainTv: {fileID: 1452030666472594, guid: cc42cad6bb2dde941bb8ac195415817f, type: 2}
+  tvPrefab: {fileID: 1452030666472594, guid: d75206785bae36f4a82d3111316f6a58, type: 2}
   transBubble: {fileID: 1892047492839816, guid: 4b74897ea9fa4c343824037698759b55,
     type: 2}
 --- !u!4 &1315175606
@@ -822,7 +821,7 @@ GameObject:
   - component: {fileID: 1376923457}
   m_Layer: 0
   m_Name: Wall2
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,7 +1070,7 @@ GameObject:
   - component: {fileID: 1730570745}
   m_Layer: 0
   m_Name: Wall3
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,7 +1229,7 @@ GameObject:
   - component: {fileID: 2039354465}
   m_Layer: 0
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class RadioMinion : MonoBehaviour {
 
+    public bool commandReceived = true;
+
+    private enum MinionState { CASUAL, CHARGE }
+    private MinionState m_minionState;
+
     /// <summary>
     /// Hold the state of the rotation.
     /// Does the math using regular degrees and provide the quaternion.
@@ -13,7 +18,6 @@ public class RadioMinion : MonoBehaviour {
     {
         private float directionDegrees = 0.0f;
         private Quaternion directionQuaternion = Quaternion.identity;
-        public bool commandReceived = true;
 
         internal void TurnRight()
         {
@@ -45,6 +49,13 @@ public class RadioMinion : MonoBehaviour {
         }
     }
 
+    internal void SetCommandRecieved()
+    {
+        commandReceived = true;
+
+        m_minionState = MinionState.CHARGE;
+
+    }
 
     class RandomStroll
     {
@@ -57,8 +68,12 @@ public class RadioMinion : MonoBehaviour {
         enum State { WALKING, TURNING }
         State m_state;
 
+        private bool m_isOn;
+
         public RandomStroll(Transform transform)
         {
+            m_isOn = true;
+
             m_transform = transform;
 
             ResetStroll();
@@ -76,6 +91,12 @@ public class RadioMinion : MonoBehaviour {
 
         internal void Update()
         {
+            if(!m_isOn)
+            {
+                return;
+            }
+
+
             m_timeLeft -= Time.deltaTime;
 
             if (m_timeLeft > 0)
@@ -123,6 +144,11 @@ public class RadioMinion : MonoBehaviour {
         {
             m_direction.Turn();
         }
+
+        internal void ActCasual()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     RandomStroll m_randomStroll;
@@ -131,14 +157,22 @@ public class RadioMinion : MonoBehaviour {
 
     public float m_health;
 
+    public float m_chargeSpeed;
+
     void Start()
     {
         m_randomStroll = new RandomStroll(transform);
+        m_minionState = MinionState.CASUAL;
     }
 
     void Update()
     {
         m_randomStroll.Update();
+
+        if(m_minionState == MinionState.CHARGE)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * m_chargeSpeed);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -153,6 +187,17 @@ public class RadioMinion : MonoBehaviour {
         {
             Explode(collision);
         }
+
+        if (m_minionState != MinionState.CASUAL && collision.gameObject.tag == "Boundary")
+        {
+            // Stop special command and resume strolling
+            m_randomStroll.ActCasual();
+            m_minionState = MinionState.CASUAL;
+        }
+
+
+
+
     }
 
     private void ExplodeGameObject(GameObject gameObject, GameObject explosion, float explotionScale)
