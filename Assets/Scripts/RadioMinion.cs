@@ -141,19 +141,24 @@ public class RadioMinion : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         if(tag == "RadioMinion" && collision.gameObject.tag == "TvMinion")
-        {            
-            GameObject otherExposion = Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-            otherExposion.transform.localScale = new Vector3(4, 4, 4);
-            GameObject thisExposion = Instantiate(explosion, transform.position, Quaternion.identity);
-            thisExposion.transform.localScale = new Vector3(4, 4, 4);
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-            
+        {
+            Explode(collision);
+
         }
 
         if (tag == "TvMinion" && collision.gameObject.tag == "RadioMinion")
         {
-            Debug.Log("Explode?");
+            Explode(collision);
         }
+    }
+
+    private void Explode(Collision collision)
+    {
+        GameObject otherExposion = Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+        otherExposion.transform.localScale = new Vector3(4, 4, 4);
+        GameObject thisExposion = Instantiate(explosion, transform.position, Quaternion.identity);
+        thisExposion.transform.localScale = new Vector3(4, 4, 4);
+        Destroy(gameObject);
+        Destroy(collision.gameObject);
     }
 }

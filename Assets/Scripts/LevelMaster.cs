@@ -15,15 +15,15 @@ public class LevelMaster : MonoBehaviour {
     {
         CreateMainRadio();
 
-        CreateRadioMinions();
+        CreateRadioMinions(50);
 
-        CreateTvMinions();
+        CreateTvMinions(50);
 
     }
 
-    private void CreateTvMinions()
+    private void CreateTvMinions(int count)
     {
-        for (int i = 1; i <= 20; i++)
+        for (int i = 1; i <= count; i++)
         {
             float x = UnityEngine.Random.Range(4f, -80f);
             float z = UnityEngine.Random.Range(-77f, -46f);
@@ -38,9 +38,9 @@ public class LevelMaster : MonoBehaviour {
         }
     }
 
-    private void CreateRadioMinions()
+    private void CreateRadioMinions(int count)
     {
-        for (int i = 1; i <= 20; i++)
+        for (int i = 1; i <= count; i++)
         {
             float x = UnityEngine.Random.Range(4f, -80f);
             float z = UnityEngine.Random.Range(-1f, 6f);
