@@ -13,11 +13,10 @@ public class LevelMaster : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        CreateMainRadio();
+     
+        CreateRadioMinions(5);
 
-        CreateRadioMinions(50);
-
-        CreateTvMinions(50);
+        CreateTvMinions(5);
 
     }
 
@@ -52,16 +51,6 @@ public class LevelMaster : MonoBehaviour {
 
             newMinion.tag = "RadioMinion";
         }
-    }
-
-    private void CreateMainRadio()
-    {
-        float x = UnityEngine.Random.Range(4f, -80f);
-        float z = UnityEngine.Random.Range(-77f, 16f);
-        Vector3 v = new Vector3(x, 1, z);
-        var mainRadioInstance = Instantiate(mainRadio, v, Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f));
-        float size = 20f;
-        mainRadioInstance.transform.localScale = new Vector3(size, size, size);
     }
 
     // Update is called once per frame
