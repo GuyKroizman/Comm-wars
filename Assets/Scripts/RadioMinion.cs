@@ -7,8 +7,11 @@ public class RadioMinion : MonoBehaviour {
 
     public bool commandReceived = true;
 
+
     private enum MinionState { CASUAL, CHARGE }
     private MinionState m_minionState;
+    public GameObject gotCommand;
+    private GameObject gotCommandInstance=null;
 
     /// <summary>
     /// Hold the state of the rotation.
@@ -18,6 +21,7 @@ public class RadioMinion : MonoBehaviour {
     {
         private float directionDegrees = 0.0f;
         private Quaternion directionQuaternion = Quaternion.identity;
+
 
         internal void TurnRight()
         {
@@ -122,7 +126,9 @@ public class RadioMinion : MonoBehaviour {
                     
                 }
                 ResetStroll();
-            }            
+            } 
+            
+                  
         }
 
         /// <summary>
@@ -169,9 +175,20 @@ public class RadioMinion : MonoBehaviour {
     {
         m_randomStroll.Update();
 
-        if(m_minionState == MinionState.CHARGE)
+
+        if (m_minionState == MinionState.CHARGE)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * m_chargeSpeed);
+        }
+
+        if (commandReceived  && gotCommandInstance==null)
+        {
+            Vector3 currentPos = transform.position;
+            currentPos.y += 5f;
+            gotCommandInstance = Instantiate(gotCommand, currentPos, Quaternion.Euler(0f, 0f, 0f));
+            // bind gotCommand light with parent minion
+            gotCommandInstance.transform.SetParent(this.gameObject.transform);
+
         }
     }
 
