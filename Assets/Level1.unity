@@ -96,7 +96,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1452030666472594, guid: cc42cad6bb2dde941bb8ac195415817f,
     type: 2}
   m_PrefabInternal: {fileID: 672509623}
---- !u!114 &101494279
+--- !u!114 &101494285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -155,7 +155,8 @@ Prefab:
       propertyPath: m_Name
       value: RadioKing
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114576368770179472, guid: 9e3637a75d7a540458d67c2c7f9641c9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9e3637a75d7a540458d67c2c7f9641c9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &672509623
@@ -205,7 +206,8 @@ Prefab:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114257643037508148, guid: cc42cad6bb2dde941bb8ac195415817f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cc42cad6bb2dde941bb8ac195415817f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &959742693

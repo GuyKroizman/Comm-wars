@@ -14,9 +14,9 @@ public class LevelMaster : MonoBehaviour {
 	void Start ()
     {
      
-        CreateRadioMinions(5);
+        CreateRadioMinions(1);
 
-        CreateTvMinions(5);
+        CreateTvMinions(1);
 
     }
 
