@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class RadioMinion : MonoBehaviour {
 
+    public bool commandReceived = true;
+    public GameObject gotCommand;
+    private GameObject gotCommandInstance=null;
     /// <summary>
     /// Hold the state of the rotation.
     /// Does the math using regular degrees and provide the quaternion.
@@ -13,7 +16,7 @@ public class RadioMinion : MonoBehaviour {
     {
         private float directionDegrees = 0.0f;
         private Quaternion directionQuaternion = Quaternion.identity;
-        public bool commandReceived = true;
+        
 
         internal void TurnRight()
         {
@@ -101,7 +104,9 @@ public class RadioMinion : MonoBehaviour {
                     
                 }
                 ResetStroll();
-            }            
+            } 
+            
+                  
         }
 
         /// <summary>
@@ -139,6 +144,15 @@ public class RadioMinion : MonoBehaviour {
     void Update()
     {
         m_randomStroll.Update();
+
+        if (commandReceived  && gotCommandInstance==null)
+        {
+            Vector3 currentPos = transform.position;
+            currentPos.y += 5f;
+            gotCommandInstance = Instantiate(gotCommand, currentPos, Quaternion.Euler(0f, 0f, 0f));
+            // bind gotCommand light with parent minion
+            gotCommandInstance.transform.SetParent(this.gameObject.transform);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
