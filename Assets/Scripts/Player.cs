@@ -8,9 +8,9 @@ public class Player : MonoBehaviour {
     public KeyCode down;
     public KeyCode right;
     public KeyCode left;
-
-
-	void Update () {
+    public GameObject transmissionBubble;
+    
+    void Update () {
         if (Input.GetKey(up))
             transform.Translate(Vector3.forward * speed );
         if (Input.GetKey(down))
@@ -27,6 +27,11 @@ public class Player : MonoBehaviour {
             temp.y = temp.y + 2.0f;
             transform.rotation = Quaternion.Euler(temp);
         }
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 currentPos = this.transform.position;
+            currentPos.y += 1f;
+            var transmissionObjectInstance = Instantiate(transmissionBubble, currentPos, Quaternion.Euler(0f, 0f, 0f));
+        }
     }
 }

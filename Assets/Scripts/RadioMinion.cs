@@ -13,6 +13,7 @@ public class RadioMinion : MonoBehaviour {
     {
         private float directionDegrees = 0.0f;
         private Quaternion directionQuaternion = Quaternion.identity;
+        
 
         internal void TurnRight()
         {
