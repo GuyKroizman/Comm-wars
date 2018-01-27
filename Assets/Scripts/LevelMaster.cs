@@ -33,6 +33,8 @@ public class LevelMaster : MonoBehaviour {
 
             float size = 1.75f;
             newMinion.transform.localScale = new Vector3(size, size, size);
+
+            newMinion.tag = "TvMinion";
         }
     }
 
@@ -47,6 +49,8 @@ public class LevelMaster : MonoBehaviour {
             
             float size = 10f;
             newMinion.transform.localScale = new Vector3(size, size, size);
+
+            newMinion.tag = "RadioMinion";
         }
     }
 

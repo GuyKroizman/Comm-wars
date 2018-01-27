@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65272326796592902}
   m_Layer: 0
   m_Name: okean
-  m_TagString: Untagged
+  m_TagString: RadioMinion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,4 +287,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf273ef7a2e4924faf6d64a0d6c2c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0

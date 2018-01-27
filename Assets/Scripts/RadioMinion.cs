@@ -138,6 +138,14 @@ public class RadioMinion : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        //m_randomStroll.ChangeDirection();
+        if(tag == "RadioMinion" && collision.gameObject.tag == "TvMinion")
+        {
+            Debug.Log("Explode");
+        }
+
+        if (tag == "TvMinion" && collision.gameObject.tag == "RadioMinion")
+        {
+            Debug.Log("Explode");
+        }
     }
 }
