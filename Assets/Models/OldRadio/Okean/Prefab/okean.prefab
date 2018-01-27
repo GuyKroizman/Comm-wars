@@ -287,4 +287,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf273ef7a2e4924faf6d64a0d6c2c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100008, guid: 1dbc518224e49f34095aab42fe05751a, type: 2}
+  m_explosion: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 2}
+  m_health: 100

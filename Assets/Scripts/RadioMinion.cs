@@ -126,7 +126,9 @@ public class RadioMinion : MonoBehaviour {
 
     RandomStroll m_randomStroll;
 
-    public GameObject explosion;
+    public GameObject m_explosion;
+
+    public float m_health;
 
     void Start()
     {
@@ -152,13 +154,54 @@ public class RadioMinion : MonoBehaviour {
         }
     }
 
+    private void ExplodeGameObject(GameObject gameObject, GameObject explosion, float explotionScale)
+    {
+        GameObject thisExposion = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+
+        thisExposion.transform.localScale = new Vector3(explotionScale, explotionScale, explotionScale);
+
+        Destroy(gameObject);
+    }
+
     private void Explode(Collision collision)
     {
-        GameObject otherExposion = Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-        otherExposion.transform.localScale = new Vector3(4, 4, 4);
-        GameObject thisExposion = Instantiate(explosion, transform.position, Quaternion.identity);
-        thisExposion.transform.localScale = new Vector3(4, 4, 4);
+        ExplodeGameObject(collision.gameObject, m_explosion, 4);
+        AreaDamageEnemies(collision.gameObject.transform.position, 20);
+
+        ExplodeGameObject(gameObject, m_explosion, 4);
+        AreaDamageEnemies(gameObject.transform.position, 20);
+
         Destroy(gameObject);
         Destroy(collision.gameObject);
+    }
+
+    void AreaDamageEnemies(Vector3 location, float radius)
+    {
+        Collider[] objectsInRange = Physics.OverlapSphere(location, radius);
+        foreach (Collider col in objectsInRange)
+        {
+            RadioMinion enemy = col.GetComponent<RadioMinion>();
+            if (enemy != null)
+            {
+                // linear falloff of effect
+                float proximity = (location - enemy.transform.position).magnitude;                
+                float effect = 100 - (proximity * 15);
+
+                if (effect <= 0)
+                    continue;
+
+                enemy.ApplyDamage(effect);
+            }
+        }
+    }
+
+    private void ApplyDamage(float v)
+    {
+        m_health -= v;
+
+        if(m_health < 0)
+        {
+            ExplodeGameObject(gameObject, m_explosion, 3);
+        }
     }
 }
