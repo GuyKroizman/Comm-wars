@@ -9,7 +9,8 @@ public class LevelMaster : MonoBehaviour {
     public GameObject radioPrefab;
     public GameObject mainRadio;
     public GameObject mainTv;
-    
+    public GameObject transBubble;
+
 	// Use this for initialization
 	void Start ()
     {
