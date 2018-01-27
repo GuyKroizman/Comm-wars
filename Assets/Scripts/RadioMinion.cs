@@ -126,6 +126,8 @@ public class RadioMinion : MonoBehaviour {
 
     RandomStroll m_randomStroll;
 
+    public GameObject explosion;
+
     void Start()
     {
         m_randomStroll = new RandomStroll(transform);
@@ -139,13 +141,19 @@ public class RadioMinion : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         if(tag == "RadioMinion" && collision.gameObject.tag == "TvMinion")
-        {
-            Debug.Log("Explode");
+        {            
+            GameObject otherExposion = Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            otherExposion.transform.localScale = new Vector3(4, 4, 4);
+            GameObject thisExposion = Instantiate(explosion, transform.position, Quaternion.identity);
+            thisExposion.transform.localScale = new Vector3(4, 4, 4);
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+            
         }
 
         if (tag == "TvMinion" && collision.gameObject.tag == "RadioMinion")
         {
-            Debug.Log("Explode");
+            Debug.Log("Explode?");
         }
     }
 }
