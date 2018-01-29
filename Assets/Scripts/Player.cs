@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(transmit))
         {
             Vector3 currentPos = transform.position;
-            currentPos.y += 1f;
+            currentPos.y = currentPos.y + 10f;
             Instantiate(transmissionBubble, currentPos, Quaternion.Euler(0f, 0f, 0f));
         }
     }

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class gotCommandScript : MonoBehaviour {
     private float deltaTransparency = -0.02f;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    Component[] renderers;
+
+
+    void Start () {
+        renderers = this.GetComponentsInChildren(typeof(Renderer));
+    }
 	
-	// Update is called once per frame
 	void Update () {
-        Component[] renderers = this.GetComponentsInChildren(typeof(Renderer));
+        
         foreach (Renderer curRenderer in renderers)
         {
             Color color;

@@ -90,7 +90,7 @@ public class RadioMinion : MonoBehaviour {
         internal void ResetStroll()
         {
             m_timeLeft = UnityEngine.Random.Range(3, 10);
-            m_speed = UnityEngine.Random.Range(2f, 6f);
+            m_speed = UnityEngine.Random.Range(3f, 8f);
         }
 
         internal void Update()
@@ -153,7 +153,7 @@ public class RadioMinion : MonoBehaviour {
 
         internal void ActCasual()
         {
-            throw new NotImplementedException();
+            m_isOn = true;
         }
     }
 
@@ -171,7 +171,7 @@ public class RadioMinion : MonoBehaviour {
         m_minionState = MinionState.CASUAL;
     }
 
-    void Update()
+    private void Update()
     {
         m_randomStroll.Update();
 
@@ -181,7 +181,7 @@ public class RadioMinion : MonoBehaviour {
             transform.Translate(Vector3.forward * Time.deltaTime * m_chargeSpeed);
         }
 
-        if (commandReceived  && gotCommandInstance==null)
+        if (commandReceived && gotCommandInstance == null)
         {
             Vector3 currentPos = transform.position;
             currentPos.y += 5f;
@@ -211,10 +211,16 @@ public class RadioMinion : MonoBehaviour {
             m_randomStroll.ActCasual();
             m_minionState = MinionState.CASUAL;
         }
+        
+    }
 
-
-
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Transmission_Charge")
+        {
+            m_minionState = MinionState.CHARGE;
+            Debug.Log("Charging!!!");
+        }
     }
 
     private void ExplodeGameObject(GameObject gameObject, GameObject explosion, float explotionScale)

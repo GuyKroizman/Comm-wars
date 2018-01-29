@@ -291,4 +291,4 @@ MonoBehaviour:
   gotCommand: {fileID: 1521569268204180, guid: 622f46ae5d418574888915ebabc556cb, type: 2}
   m_explosion: {fileID: 100008, guid: 1dbc518224e49f34095aab42fe05751a, type: 2}
   m_health: 100
-  m_chargeSpeed: 0
+  m_chargeSpeed: 10
